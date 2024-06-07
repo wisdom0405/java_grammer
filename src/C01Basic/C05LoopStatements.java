@@ -132,11 +132,13 @@ public class C05LoopStatements {
         // 소수 구하기 : 1과 자기자신을 제외한 숫자로 나누어지지 않는 수
         // 사용자가 입력한 값이 소수인지?
         // 2, 3, 4, 5, 7...
+        // 64가 2..63까지 나눠서 나눠지는 수가 있으면 소수가 아니다.
+        // 64 = 8 * 8 이므로 8까지만 나눠봐도 ㄱㅊ
 
 //        Scanner sc = new Scanner(System.in);
 //        int input = sc.nextInt();
 //        boolean trueOrNot = false;
-//        for(int i = 2; i <= input; i++){
+//        for(int i = 2; i*i <= input; i++){
 //            if(input % i == 0){
 //                trueOrNot = true;
 //                break;
@@ -224,12 +226,13 @@ public class C05LoopStatements {
 //            System.out.println();
 //        }
         // 라벨문
+//        loop1:
 //        for(int i=0; i<5; i++){
 //            for(int j=0; j<5; j++){
 //                System.out.println("Hello World");
 //                if(j==2){
 //                    test=true;
-//                    break;
+//                    break loop1;
 //                }
 //            }
 //            if(test)break;
