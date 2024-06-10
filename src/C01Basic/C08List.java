@@ -1,8 +1,7 @@
 package C01Basic;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class C08List {
     public static void main(String[] args) {
@@ -77,13 +76,105 @@ public class C08List {
 //        // 가장 먼저 나오는 값의 index return
 //        System.out.println(myList.indexOf(10)); // 0
 //
-        // 전체삭제 : clear()
-        // isEmpty : 값이 비었는지, 안 비었는지
-        List<Integer> list = new ArrayList<>();
-        System.out.println(list.isEmpty());
-        list.add(10);
+//        // 전체삭제 : clear()
+//        // isEmpty : 값이 비었는지, 안 비었는지
+//        List<Integer> list = new ArrayList<>();
+//        System.out.println(list.isEmpty());
+//        list.add(10);
+//
+//        // contains : 특정 값이 있는지 없는지 확인
+//        System.out.println(list.contains(20)); // false
 
-        // contains : 특정 값이 있는지 없는지 확인
-        System.out.println(list.contains(20)); // false
+//        // 이중 리스트 (리스트 안에 리스트)
+//        // [[],[]]
+//        List<List<Integer>> myList = new ArrayList<>();
+//        myList.add(new ArrayList<>());
+//        myList.add(new ArrayList<>());
+//        myList.get(0).add(10);
+//        myList.get(0).add(20);
+//        myList.get(1).add(1);
+//        myList.get(1).add(2);
+//        System.out.println(myList); // [[10, 20], [1, 2]]
+
+//        // 리스트 안에 배열 : 배열사이즈 2,3,4개짜리 배열 3개 들어가는 것으로 add
+//        // 2(1,2) 3(10,20,30) 4(100,200,300,400)
+//        List<int[]> myList2 = new ArrayList<>();
+//        myList2.add(new int[2]);
+//        myList2.add(new int[3]);
+//        myList2.add(new int[2]);
+//        myList2.add(new int[]{1,2});
+//        myList2.add(new int[]{10,20,30});
+//        System.out.println(myList2);
+
+//        // 리스트 정렬 : Collections.sort(), 리스트 객체.sort()
+//        List<Integer> myList = new ArrayList<>();
+//        myList.add(5);
+//        myList.add(4);
+//        myList.add(3);
+//        myList.add(2);
+//        myList.add(1);
+//        myList.add(4);
+//
+//        // 정렬1. Collections.sort()
+//        Collections.sort(myList); // 오름차순
+//        Collections.sort(myList, Comparator.reverseOrder()); // 내림차순
+//
+//        // 정렬2. 리스트객체.sort()
+//        myList.sort(Comparator.naturalOrder()); // 오름차순
+//        myList.sort(Comparator.reverseOrder());
+//
+//        List<String> myList = new ArrayList<>();
+//        myList.sort(Comparator.reverseOrder());
+
+//        // 프로그래머스 : n의 배수 고르기
+//        int n = 3;
+//        int[] numlist = {4,5,6,7,8,9,10,11,12};
+//        List<Integer> answerList = new ArrayList<>();
+//        for(int i=0; i<numlist.length; i++) {
+//            if(numlist[i] % n == 0) {
+//                answerList.add(numlist[i]);
+//            }
+//        }
+//        int[] answer = new int[answerList.size()];
+//        for(int i=0; i<answer.length; i++) {
+//            answer[i] = answerList.get(i);
+//        }
+//        System.out.println(Arrays.toString(answer));
+
+        // 프로그래머스 : 두 개 뽑아서 더하기
+//        List<Integer> answerList = new ArrayList<>();
+//        for (int i = 0; i < numbers.length; i++) {
+//            for (int j = i + 1; j < numbers.length; j++) {
+//                if (!answerList.contains(numbers[i]+numbers[j])) {
+//                    answerList.add(numbers[i] + numbers[j]);
+//                }
+//            }
+//        }
+//        Collections.sort(answerList);
+//        int[] answer = new int[answerList.size()];
+//        for (int j = 0; j < answerList.size(); j++) {
+//            answer[j] = answerList.get(j);
+//        }
+
+        // 배열과 List간의 변화
+        // 1. String 배열을 List<String>로 변환
+        String[] stArr = {"java","python","c++"};
+        // 1-1 Arrays.asList
+        List<String> stList1 = new ArrayList<>(Arrays.asList(stArr));
+        // 1-2 for문을 통해 담기
+        // 1-3 streamAPi(참고만)
+        List<String> stList2 = Arrays.stream(stArr).collect(Collectors.toList());
+
+        // 2. List<String>을 String 배열로 변환
+        // 2-1. for문을 통해 담기
+        // 2-2 toArray 메서드
+        String[] stArr2 = stList1.toArray(new String[stList1.size()]);
+
+        // 3. int배열을 List<Integer>로 변환
+        // 3-1. for문을 통해 담기
+        // 3-2. streamAPI 사용
+        int[] intArr = {10,20,30,40};
+        List<Integer> intList = Arrays.stream(intArr).boxed().collect(Collectors.toList());
+
     }
 }
