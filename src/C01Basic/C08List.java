@@ -60,7 +60,7 @@ public class C08List {
 //        System.out.println(myList); // [30, 10, 20, 1, 2]
 //        myList.remove(0);
 //        System.out.println(myList); // [10, 20, 1, 2]
-//        myList.remove(Integer.valueOf(10));
+//        myList.remove(Integer.valueOf(10)); // 중복되면 맨 앞에 것 삭제
 //        System.out.println(myList);
 
 //        List<Integer> myList = new ArrayList<>();
