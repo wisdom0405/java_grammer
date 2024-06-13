@@ -18,18 +18,30 @@ public class BankService {
                 String accountNumber = sc.nextLine();
                 BankAccount bankAccount = new BankAccount(accountNumber);
                 bankAccounts.add(bankAccount);
+                System.out.println(BankAccount.static_id); // 현재 id가 몇개까지 만들어졌는지?
+
             } else if (number == 2) {
-                System.out.println("계좌번호를 입력하세요");
+                System.out.println("계좌조회 서비스");
                 String accountNumber = sc.nextLine();
-
-                System.out.println("얼마 입금하시겠습니까?");
-                int money = Integer.parseInt(sc.nextLine());
-
-                for(int i = 0; i<bankAccounts.size(); i++){
+                for(int i = 0; i < bankAccounts.size(); i++){
                     if(bankAccounts.get(i).getAccountNumber().equals(accountNumber)){
-                        bankAccounts.get(i).deposit(money);
+                        System.out.println(bankAccounts.get(i).getBalance());
+                        System.out.println(bankAccounts.get(i).getId());
                     }
                 }
+
+
+//                System.out.println("계좌번호를 입력하세요");
+//                String accountNumber = sc.nextLine();
+//
+//                System.out.println("얼마 입금하시겠습니까?");
+//                int money = Integer.parseInt(sc.nextLine());
+//
+//                for(int i = 0; i<bankAccounts.size(); i++){
+//                    if(bankAccounts.get(i).getAccountNumber().equals(accountNumber)){
+//                        bankAccounts.get(i).deposit(money);
+//                    }
+//                }
 
             } else if (number == 3) {
                 System.out.println("본인 계좌번호를 입력해주세요");
@@ -76,10 +88,16 @@ public class BankService {
 //2. BankAccount라는 클래스를 생성
 //- accountNumber(계좌번호), balance(잔액) 변수 2가지만 갖고있음
 class BankAccount{
+    static Long static_id = 0L; // banckaccount가 들어갈때마다 autoincrement 되야함
+    // 객체변수가 아니라 모두가 공유하는 변수가 됨.
+    // 객체변수는 int의 0으로 초기화됨. static변수 0으로 초기화
+    private  Long id; //
     private  String accountNumber; // 계좌번호
     private int balance; // 잔액
 
     BankAccount(String accountNumber){
+        static_id += 1;
+        id = static_id;
         this.accountNumber = accountNumber; // account number 초기화
     }
 
@@ -118,6 +136,10 @@ class BankAccount{
             System.out.println("잔액이 부족합니다.");
             System.out.println("현재 잔액은 " + this.balance + " 입니다.");
         }
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getAccountNumber() {
