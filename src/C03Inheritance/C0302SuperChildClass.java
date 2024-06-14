@@ -2,10 +2,9 @@ package C03Inheritance;
 
 public class C0302SuperChildClass extends SuperParents{
     int a;
-
     int c;
-    // super() : 부모클래스의 생성자를 의미
-    // super.변수명 : 부모클래스의 변수명
+    // super() : 부모클래스의 생성자 호출을 의미
+    // super.변수명 : 부모클래스의 변수명 (부모클래스와 자식클래스의 변수명이 같을때 구분지어주기 위해 사용)
     C0302SuperChildClass() {
         super(30);
         a = 10;

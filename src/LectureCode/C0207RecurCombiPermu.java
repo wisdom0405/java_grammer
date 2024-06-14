@@ -5,8 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class C0207RecurCombiPermu {
-    //    static List<Inteer> myList;
-//
+//    static List<Inteer> myList;
 //    static List<List<Integer>> answer;
 //    static int count;g
     public static void main(String[] args) {
