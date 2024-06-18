@@ -81,6 +81,7 @@ public class C0504StreamApi {
 //
 //        // map : 기존의 스트림을 조작하여 새로운 스트림 반환
 //        // 10씩 곱해본다
+//        // 새로운 스트림.toArray();
 //        int[] newMapArr = Arrays.stream(intArr).map(a -> a*10).toArray();
 //        System.out.println(Arrays.toString(newMapArr)); // [100, 100, 300, 400, 500]
 //
@@ -95,6 +96,7 @@ public class C0504StreamApi {
 //
 //        // 홀수만 담은 배열의 값을 제곱한 새로운 배열 생성 후 오름차순 정렬 생성: filter, map, .sorted()
 //        int[] newOddArr = Arrays.stream(arr1).filter(a-> a%2!=0).map(a->a*a).sorted().toArray();
+//        // sorted(Comparator객체) : Comparator 객체에 기본형은 안됨.
 //        // sorted(Comparator.reverseOrder());는 못함 => Integer 타입이어야하는데 int라서 안됨
 //
 //        // mapToInt : intstream 형태로 변환해주는 map
@@ -118,7 +120,9 @@ public class C0504StreamApi {
 //        int intArrMax = Arrays.stream(intArr).max().getAsInt(); // getAsInt() : 없으면 에러발생.
 //        int intArrMin = Arrays.stream(intArr).min().getAsInt();
 //        int intArrCount = (int)Arrays.stream(intArr).count(); // count의 return타입이 long이다.
+
 //        // .reduce(초기값, 연삭식);
+//        // .reduce(초기값, (a,b) -> a*b) : 누적곱
 //        int allMultiply = Arrays.stream(intArr).reduce(1, (a, b) -> a * b);
 //        int allAdd = Arrays.stream(intArr).reduce(0, (a, b) -> a + b);
 //        System.out.println(allMultiply); // 240000
