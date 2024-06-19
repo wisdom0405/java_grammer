@@ -1,14 +1,18 @@
 package C07ExceptionFileParsing.AuthorException;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class AuthorController {
     public static void main(String[] args) {
         // AuthorService 객체 생성
         AuthorService authorService = new AuthorService();
-        Scanner sc = new Scanner(System.in);
+
         while (true){
+            // 입력
+            // 1. 회원가입 2. 로그인
             System.out.println("이용하실 서비스를 선택해주세요 \n 1. 회원가입 \n 2. 로그인");
+            Scanner sc = new Scanner(System.in);
             int choice = Integer.parseInt(sc.nextLine()); // 서비스 유형 선택
 
             if(choice == 1){
@@ -42,15 +46,14 @@ public class AuthorController {
 
                 try{
                     //AuthorService 객체 생성 후 login 메서드 호출
-                    authorService.
+                    authorService.login(email, password);
 
-                }catch(){
-
-                }catch(){
-
+                }catch(IllegalArgumentException e){
+                    // Service에서 예외가 발생하면 Controller로 전달해서 예외전가
+                    System.out.println(e.getMessage());
+                    e.printStackTrace();
                 }
             }
-
 
         }
     }

@@ -30,6 +30,7 @@ public class C0701Exception {
             e.printStackTrace();
         }catch (Exception e) {
             // Exception : 모든 예외의 조상클래스
+            // 모든 예외를 다 잡으므로 상단에 위치하면 부적절하다. (나머지 catch구문에서 에러가 잡히지 않음)
             System.out.println("예외가 발생했습니다.");
             e.printStackTrace();
         } finally {

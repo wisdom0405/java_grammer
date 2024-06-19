@@ -1,6 +1,10 @@
 package C07ExceptionFileParsing.AuthorException;
 import java.util.*;
 
+// Controller : 입출력, try catch
+// Service : 핵심로직, 예외처리
+// Repository : list.add
+
 public class Author {
     static Long staticId = 0L; // id (auto_increment)
     private Long id;

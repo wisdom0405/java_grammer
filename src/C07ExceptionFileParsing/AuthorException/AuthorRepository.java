@@ -12,14 +12,20 @@ public class AuthorRepository {
         // Author 객체 authorList에 add함.
         this.authorList.add(author);
     }
-    // 회원가입 시 authorList에 동일한 email이 있는지 확인하는 메서드
-    boolean isExist(String authorEmail){
-        boolean found = this.authorList.stream().anyMatch(a -> a.getEmail().equals(authorEmail));
-        return found;
+
+    List<Author> getAuthorList() {
+        // List 리턴
+        return this.authorList;
     }
 
-    String findPassword(String authorEmail) {
-        return this.authorList.stream().filter(a -> a.getEmail().equals(authorEmail)).findFirst().get().getPassword();
-    }
+//    // 회원가입 시 authorList에 동일한 email이 있는지 확인하는 메서드
+//    boolean isExist(String authorEmail){
+//        boolean found = this.authorList.stream().anyMatch(a -> a.getEmail().equals(authorEmail));
+//        return found;
+//    }
+
+//    String findPassword(String authorEmail) {
+//        return this.authorList.stream().filter(a -> a.getEmail().equals(authorEmail)).findFirst().get().getPassword();
+//    }
 
 }
