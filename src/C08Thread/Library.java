@@ -4,6 +4,7 @@ public class Library {
     static int bookCount = 100;
 //    public static void borrow() {
     // syncronized 키워드를 통해서 해당 메서드에 한해서 lock 걸도록 설정
+    //  : 한스레드가 작업이 끝날 때까지 다른메서드들이 기다리는 것
     public synchronized static void borrow() {
         if(bookCount > 0){
             try{

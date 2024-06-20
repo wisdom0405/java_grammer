@@ -46,6 +46,8 @@ public class C0502AnonymousClass {
 //        };
     }
 }
+// Comparator(인터페이스) : compare
+// Comparable : compareTo => 대부분의 클래스에서 구현
 
 interface Animal {
     void makeSound(int input1, String input2);

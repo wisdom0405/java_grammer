@@ -16,6 +16,14 @@ public class MainClass {
 //        new Thread(new Thread2()).start();
 //        new Thread(()-> System.out.println("익명Runnable객체 주입 후 Thread")).start();
 
+//        // 방법 2-2
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("익명Runnable 객체 주입 후 실행 Thread");
+//            }
+//        }).start();
+
 //        // Thread 동시성 이슈 해결방법 2가지
 //        // syncronized, join()
 
@@ -34,6 +42,7 @@ public class MainClass {
             // 동시성 이슈 해결방법 첫번째 .join() 메서드 사용
             // join() : 다른 스레드의 완료전까지 새로운 스레드가 실행되지 않음
 //             t1.join();
+
 
         }
 

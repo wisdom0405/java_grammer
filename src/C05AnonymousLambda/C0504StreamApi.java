@@ -180,7 +180,7 @@ public class C0504StreamApi {
 //        }
 
         // Optional 생성 3가지 방법
-        Optional<String> opt1 = Optional.empty();
+        Optional<String> opt1 = Optional.empty(); // null이 담김 -> 거의 안씀
         Optional<String> opt2 = Optional.of("hello"); //null이 못들어감
         Optional<String> opt3 = Optional.ofNullable(null);// null이 들어갈수있음
 

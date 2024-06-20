@@ -16,6 +16,7 @@ class MemberInnerClass {
 
     // static 내부 클래스
     // 해당 클래스는 MemberInnerClass의 정적멤버처럼 활용
+    // 멤버.이너클래스
     static class StaticInnerClass{
         int b;
 
